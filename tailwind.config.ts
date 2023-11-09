@@ -54,7 +54,7 @@ const config: Config = {
         },
         "fade-left": {
           "0%": {
-            transform: "translateX(120%)",
+            transform: "translateX(100%)",
             opacity: "0%",
           },
 
@@ -68,7 +68,7 @@ const config: Config = {
         },
         "fade-right": {
           "0%": {
-            transform: "translateX(-120%)",
+            transform: "translateX(-100%)",
             opacity: "0%",
           },
 
@@ -90,12 +90,12 @@ const config: Config = {
             "line-height": "0%",
             opacity: "0%",
           },
-          "50%": {
+          "80%": {
             opacity: "100%",
           },
 
           "100%": {
-            "line-height": "150%",
+            "line-height": "100%",
             opacity: "100%",
           },
         },

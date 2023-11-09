@@ -9,33 +9,108 @@ import { Eye } from "lucide-react";
 
 // const redis = Redis.fromEnv();
 
+const allProjects = [
+  {
+    date: "2023-10-15",
+    published: "2023-10-10",
+    slug: "unkey",
+    title: "sit amet",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum posuere tortor, eget vulputate ex feugiat molestie. Curabitur sagittis libero id odio imperdiet condimentum. Proin vestibulum pellentesque dignissim. Vivamus id metus vitae ipsum venenatis sagittis. Duis et cursus metus. Maecenas id lacinia erat, vitae tincidunt dolor. Donec non sodales nibh, ac aliquet metus. Cras non posuere erat.",
+  },
+  {
+    date: "2023-10-10",
+    published: "2023-10-10",
+    slug: "planetfall",
+    title: "Lorem ipsum ",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum posuere tortor, eget vulputate ex feugiat molestie. Curabitur sagittis libero id odio imperdiet condimentum. Proin vestibulum pellentesque dignissim. Vivamus id metus vitae ipsum venenatis sagittis. Duis et cursus metus. Maecenas id lacinia erat, vitae tincidunt dolor. Donec non sodales nibh, ac aliquet metus. Cras non posuere erat.",
+  },
+  {
+    date: "2023-10-10",
+    published: "2023-10-10",
+    slug: "Loremipsum",
+    title: "Lorem ipsum ",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum posuere tortor, eget vulputate ex feugiat molestie. Curabitur sagittis libero id odio imperdiet condimentum. Proin vestibulum pellentesque dignissim. Vivamus id metus vitae ipsum venenatis sagittis. Duis et cursus metus. Maecenas id lacinia erat, vitae tincidunt dolor. Donec non sodales nibh, ac aliquet metus. Cras non posuere erat.",
+  },
+  {
+    date: "2023-10-10",
+    published: "2023-10-10",
+    slug: "highstorm",
+    title: "Lorem ipsum ",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum posuere tortor, eget vulputate ex feugiat molestie. Curabitur sagittis libero id odio imperdiet condimentum. Proin vestibulum pellentesque dignissim. Vivamus id metus vitae ipsum venenatis sagittis. Duis et cursus metus. Maecenas id lacinia erat, vitae tincidunt dolor. Donec non sodales nibh, ac aliquet metus. Cras non posuere erat.",
+  },
+  {
+    date: "2023-10-10",
+    published: "2023-10-10",
+    slug: "highstorm2",
+    title: "Lorem ipsum ",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum posuere tortor, eget vulputate ex feugiat molestie. Curabitur sagittis libero id odio imperdiet condimentum. Proin vestibulum pellentesque dignissim. Vivamus id metus vitae ipsum venenatis sagittis. Duis et cursus metus. Maecenas id lacinia erat, vitae tincidunt dolor. Donec non sodales nibh, ac aliquet metus. Cras non posuere erat.",
+  },
+  {
+    date: "2023-10-10",
+    published: "2023-10-10",
+    slug: "highstorm3",
+    title: "Lorem ipsum ",
+    description:
+      "Lorem ipsum dolor sit amet,  Sed interdum posuere tortor, eget vulputate ex feugiat molestie. Curabitur sagittis libero id odio imperdiet condimentum. Proin vestibulum pellentesque dignissim. Vivamus id metus vitae ipsum venenatis sagittis. Duis et cursus metus. Maecenas id lacinia erat, vitae tincidunt dolor. Donec non sodales nibh, ac aliquet metus. Cras non posuere erat.",
+  },
+  {
+    date: "2023-10-10",
+    published: "2023-10-10",
+    slug: "highstorm4",
+    title: "Lorem ipsum ",
+    description:
+      "Lorem ipsum dolor sit amet,, ac aliquet metus. Cras non posuere erat.",
+  },
+  {
+    date: "2023-10-10",
+    published: "2023-10-10",
+    slug: "highstorm5",
+    title: "Lorem ipsum ",
+    description:
+      "adipiscing elit. Sed interdum posuere tortor, eget vulputate ex feugiat molestie. Curabitur sagittis libero id odio imperdiet condimentum. Proin vestibulum pellentesque dignissim. Vivamus id metus vitae ipsum venenatis sagittis. Duis et cursus metus. Maecenas id lacinia erat, vitae tincidunt dolor. Donec non sodales nibh, ac aliquet metus. Cras non posuere erat.",
+  },
+  {
+    date: "2023-10-10",
+    published: "2023-10-10",
+    slug: "highstorm6",
+    title: "Lorem ipsum ",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum posuere tortor, eget vulputate ex feugiat molestie. Curabitur sagittis libero id odio imperdiet condimentum. Proin vestibulum pellentesque dignissim. Vivamus id metus vitae ipsum venenatis sagittis. Duis et cursus metus. Maecenas id lacinia erat, vitae tincidunt dolor. Donec non sodales nibh, ac aliquet metus. Cras non posuere erat.",
+  },
+];
+
 export const revalidate = 60;
 export default async function ProjectsPage() {
-  //   const views = (
-  //     await redis.mget<number[]>(
-  //       ...allProjects.map((p) => ["pageviews", "projects", p.slug].join(":")),
-  //     )
-  //   ).reduce((acc, v, i) => {
-  //     acc[allProjects[i].slug] = v ?? 0;
-  //     return acc;
-  //   }, {} as Record<string, number>);
+  // const views = (
+  //   await redis.mget<number[]>(
+  //     ...allProjects.map((p) => ["pageviews", "projects", p.slug].join(":")),
+  //   )
+  // ).reduce((acc, v, i) => {
+  //   acc[allProjects[i].slug] = v ?? 0;
+  //   return acc;
+  // }, {} as Record<string, number>);
 
-  //   const featured = allProjects.find((project) => project.slug === "unkey")!;
-  //   const top2 = allProjects.find((project) => project.slug === "planetfall")!;
-  //   const top3 = allProjects.find((project) => project.slug === "highstorm")!;
-  //   const sorted = allProjects
-  //     .filter((p) => p.published)
-  //     .filter(
-  //       (project) =>
-  //         project.slug !== featured.slug &&
-  //         project.slug !== top2.slug &&
-  //         project.slug !== top3.slug,
-  //     )
-  //     .sort(
-  //       (a, b) =>
-  //         new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
-  //         new Date(a.date ?? Number.POSITIVE_INFINITY).getTime(),
-  //     );
+  const featured = allProjects.find((project) => project.slug === "unkey")!;
+  const top2 = allProjects.find((project) => project.slug === "planetfall")!;
+  const top3 = allProjects.find((project) => project.slug === "highstorm")!;
+  const sorted = allProjects
+    .filter((p) => p.published)
+    .filter(
+      (project) =>
+        project.slug !== featured.slug &&
+        project.slug !== top2.slug &&
+        project.slug !== top3.slug
+    )
+    .sort(
+      (a, b) =>
+        new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
+        new Date(a.date ?? Number.POSITIVE_INFINITY).getTime()
+    );
 
   return (
     <div className='relative pb-16'>
@@ -53,11 +128,11 @@ export default async function ProjectsPage() {
 
         <div className='grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 '>
           <Card>
-            <Link href={`/projects`}>
+            <Link href={`/projects/${featured.slug}`}>
               <article className='relative w-full h-full p-4 md:p-8'>
                 <div className='flex items-center justify-between gap-2'>
                   <div className='text-xs text-zinc-100'>
-                    {/* {featured.date ? (
+                    {featured.date ? (
                       <time dateTime={new Date(featured.date).toISOString()}>
                         {Intl.DateTimeFormat(undefined, {
                           dateStyle: "medium",
@@ -65,8 +140,7 @@ export default async function ProjectsPage() {
                       </time>
                     ) : (
                       <span>SOON</span>
-                    )} */}
-                    <span>SOON</span>
+                    )}
                   </div>
                   <span className='flex items-center gap-1 text-xs text-zinc-500'>
                     <Eye className='w-4 h-4' />{" "}
@@ -95,9 +169,9 @@ export default async function ProjectsPage() {
           </Card>
 
           <div className='flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 '>
-            {["top2", "top3"].map((project) => (
-              <Card key={project}>
-                <Article />
+            {[top2, top3].map((project) => (
+              <Card key={project.slug}>
+                <Article project={project} views={0} />
               </Card>
             ))}
           </div>
@@ -106,32 +180,31 @@ export default async function ProjectsPage() {
 
         <div className='grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3'>
           <div className='grid grid-cols-1 gap-4'>
-            sadasd
-            {/* {sorted
+            {sorted
               .filter((_, i) => i % 3 === 0)
               .map((project) => (
                 <Card key={project.slug}>
-                  <Article project={project} views={views[project.slug] ?? 0} />
+                  <Article project={project} views={0} />
                 </Card>
-              ))} */}
+              ))}
           </div>
           <div className='grid grid-cols-1 gap-4'>
-            {/* {sorted
+            {sorted
               .filter((_, i) => i % 3 === 1)
               .map((project) => (
                 <Card key={project.slug}>
-                  <Article project={project} views={views[project.slug] ?? 0} />
+                  <Article project={project} views={0} />
                 </Card>
-              ))} */}
+              ))}
           </div>
           <div className='grid grid-cols-1 gap-4'>
-            {/* {sorted
+            {sorted
               .filter((_, i) => i % 3 === 2)
               .map((project) => (
                 <Card key={project.slug}>
-                  <Article project={project} views={views[project.slug] ?? 0} />
+                  <Article project={project} views={0} />
                 </Card>
-              ))} */}
+              ))}
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import "./globals.css";
 import { Inter, Agbalumo, Anton } from "next/font/google";
 import LocalFont from "next/font/local";
 import { Metadata } from "next";
+import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
   title: {
@@ -69,11 +70,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang='en'
-      className={[agbalumo.className, , calSans.variable].join(" ")}
-    >
-      <head>{/* <Analytics /> */}</head>
+    <html lang='en' className={[inter.variable, , calSans.variable].join(" ")}>
+      <head>
+        <Analytics />
+      </head>
       <body
         className={`bg-black ${
           process.env.NODE_ENV === "development" ? "debug-screens" : undefined
