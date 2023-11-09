@@ -4,11 +4,11 @@ import React from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import { Article } from "./article";
-// import { Redis } from "@upstash/redis";
+import { Redis } from "@upstash/redis";
 import { Eye } from "lucide-react";
 
-// const redis = Redis.fromEnv();
-
+const redis = Redis.fromEnv();
+console.log(redis);
 const allProjects = [
   {
     date: "2023-10-15",

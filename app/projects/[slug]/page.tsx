@@ -117,6 +117,7 @@ export default async function PostPage({ params }: Props) {
 
       <article className='px-4 py-12 mx-auto prose prose-zinc prose-quoteless'>
         {/* <Mdx code={project.body.code} /> */}
+        asdasd
       </article>
     </div>
   );
