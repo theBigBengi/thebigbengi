@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-// import { allProjects } from "contentlayer/generated";
+import { allProjects } from "contentlayer/generated";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import { Article } from "./article";
@@ -8,92 +8,17 @@ import { Redis } from "@upstash/redis";
 import { Eye } from "lucide-react";
 
 const redis = Redis.fromEnv();
-console.log(redis);
-const allProjects = [
-  {
-    date: "2023-10-15",
-    published: "2023-10-10",
-    slug: "unkey",
-    title: "sit amet",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum posuere tortor, eget vulputate ex feugiat molestie. Curabitur sagittis libero id odio imperdiet condimentum. Proin vestibulum pellentesque dignissim. Vivamus id metus vitae ipsum venenatis sagittis. Duis et cursus metus. Maecenas id lacinia erat, vitae tincidunt dolor. Donec non sodales nibh, ac aliquet metus. Cras non posuere erat.",
-  },
-  {
-    date: "2023-10-10",
-    published: "2023-10-10",
-    slug: "planetfall",
-    title: "Lorem ipsum ",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum posuere tortor, eget vulputate ex feugiat molestie. Curabitur sagittis libero id odio imperdiet condimentum. Proin vestibulum pellentesque dignissim. Vivamus id metus vitae ipsum venenatis sagittis. Duis et cursus metus. Maecenas id lacinia erat, vitae tincidunt dolor. Donec non sodales nibh, ac aliquet metus. Cras non posuere erat.",
-  },
-  {
-    date: "2023-10-10",
-    published: "2023-10-10",
-    slug: "Loremipsum",
-    title: "Lorem ipsum ",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum posuere tortor, eget vulputate ex feugiat molestie. Curabitur sagittis libero id odio imperdiet condimentum. Proin vestibulum pellentesque dignissim. Vivamus id metus vitae ipsum venenatis sagittis. Duis et cursus metus. Maecenas id lacinia erat, vitae tincidunt dolor. Donec non sodales nibh, ac aliquet metus. Cras non posuere erat.",
-  },
-  {
-    date: "2023-10-10",
-    published: "2023-10-10",
-    slug: "highstorm",
-    title: "Lorem ipsum ",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum posuere tortor, eget vulputate ex feugiat molestie. Curabitur sagittis libero id odio imperdiet condimentum. Proin vestibulum pellentesque dignissim. Vivamus id metus vitae ipsum venenatis sagittis. Duis et cursus metus. Maecenas id lacinia erat, vitae tincidunt dolor. Donec non sodales nibh, ac aliquet metus. Cras non posuere erat.",
-  },
-  {
-    date: "2023-10-10",
-    published: "2023-10-10",
-    slug: "highstorm2",
-    title: "Lorem ipsum ",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum posuere tortor, eget vulputate ex feugiat molestie. Curabitur sagittis libero id odio imperdiet condimentum. Proin vestibulum pellentesque dignissim. Vivamus id metus vitae ipsum venenatis sagittis. Duis et cursus metus. Maecenas id lacinia erat, vitae tincidunt dolor. Donec non sodales nibh, ac aliquet metus. Cras non posuere erat.",
-  },
-  {
-    date: "2023-10-10",
-    published: "2023-10-10",
-    slug: "highstorm3",
-    title: "Lorem ipsum ",
-    description:
-      "Lorem ipsum dolor sit amet,  Sed interdum posuere tortor, eget vulputate ex feugiat molestie. Curabitur sagittis libero id odio imperdiet condimentum. Proin vestibulum pellentesque dignissim. Vivamus id metus vitae ipsum venenatis sagittis. Duis et cursus metus. Maecenas id lacinia erat, vitae tincidunt dolor. Donec non sodales nibh, ac aliquet metus. Cras non posuere erat.",
-  },
-  {
-    date: "2023-10-10",
-    published: "2023-10-10",
-    slug: "highstorm4",
-    title: "Lorem ipsum ",
-    description:
-      "Lorem ipsum dolor sit amet,, ac aliquet metus. Cras non posuere erat.",
-  },
-  {
-    date: "2023-10-10",
-    published: "2023-10-10",
-    slug: "highstorm5",
-    title: "Lorem ipsum ",
-    description:
-      "adipiscing elit. Sed interdum posuere tortor, eget vulputate ex feugiat molestie. Curabitur sagittis libero id odio imperdiet condimentum. Proin vestibulum pellentesque dignissim. Vivamus id metus vitae ipsum venenatis sagittis. Duis et cursus metus. Maecenas id lacinia erat, vitae tincidunt dolor. Donec non sodales nibh, ac aliquet metus. Cras non posuere erat.",
-  },
-  {
-    date: "2023-10-10",
-    published: "2023-10-10",
-    slug: "highstorm6",
-    title: "Lorem ipsum ",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum posuere tortor, eget vulputate ex feugiat molestie. Curabitur sagittis libero id odio imperdiet condimentum. Proin vestibulum pellentesque dignissim. Vivamus id metus vitae ipsum venenatis sagittis. Duis et cursus metus. Maecenas id lacinia erat, vitae tincidunt dolor. Donec non sodales nibh, ac aliquet metus. Cras non posuere erat.",
-  },
-];
-
+console.log(allProjects);
 export const revalidate = 60;
 export default async function ProjectsPage() {
-  // const views = (
-  //   await redis.mget<number[]>(
-  //     ...allProjects.map((p) => ["pageviews", "projects", p.slug].join(":")),
-  //   )
-  // ).reduce((acc, v, i) => {
-  //   acc[allProjects[i].slug] = v ?? 0;
-  //   return acc;
-  // }, {} as Record<string, number>);
+  //   const views = (
+  //     await redis.mget<number[]>(
+  //       ...allProjects.map((p) => ["pageviews", "projects", p.slug].join(":")),
+  //     )
+  //   ).reduce((acc, v, i) => {
+  //     acc[allProjects[i].slug] = v ?? 0;
+  //     return acc;
+  //   }, {} as Record<string, number>);
 
   const featured = allProjects.find((project) => project.slug === "unkey")!;
   const top2 = allProjects.find((project) => project.slug === "planetfall")!;
@@ -144,9 +69,9 @@ export default async function ProjectsPage() {
                   </div>
                   <span className='flex items-center gap-1 text-xs text-zinc-500'>
                     <Eye className='w-4 h-4' />{" "}
-                    {/* {Intl.NumberFormat("en-US", { notation: "compact" }).format(
-                      views[featured.slug] ?? 0,
-                    )} */}
+                    {Intl.NumberFormat("en-US", { notation: "compact" }).format(
+                      0
+                    )}
                   </span>
                 </div>
 
@@ -154,10 +79,10 @@ export default async function ProjectsPage() {
                   id='featured-post'
                   className='mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display'
                 >
-                  title
+                  {featured.title}
                 </h2>
                 <p className='mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300'>
-                  description
+                  {featured.description}
                 </p>
                 <div className='absolute bottom-4 md:bottom-8'>
                   <p className='hidden text-zinc-200 hover:text-zinc-50 lg:block'>
