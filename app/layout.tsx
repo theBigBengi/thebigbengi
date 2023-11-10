@@ -3,6 +3,8 @@ import { Inter, Agbalumo, Anton } from "next/font/google";
 import LocalFont from "next/font/local";
 import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
+import { ThemeProvider } from "./theme-provider";
+import { ThemeToggle } from "./components/theme-toggle";
 
 export const metadata: Metadata = {
   title: {
@@ -48,16 +50,6 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
-const agbalumo = Agbalumo({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-});
-const a = Anton({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 const calSans = LocalFont({
   src: "../public/fonts/CalSans-SemiBold.ttf",
@@ -75,11 +67,14 @@ export default function RootLayout({
         <Analytics />
       </head>
       <body
-        className={`bg-black ${
+        className={`bg-zinic-50 dark:bg-black ${
           process.env.NODE_ENV === "development" ? "debug-screens" : undefined
         }`}
       >
-        {children}
+        <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+          {children}
+          <ThemeToggle />
+        </ThemeProvider>
       </body>
     </html>
   );

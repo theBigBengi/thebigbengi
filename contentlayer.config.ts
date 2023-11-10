@@ -23,6 +23,18 @@ export const Project = defineDocumentType(() => ({
   contentType: "mdx",
 
   fields: {
+    tags: {
+      type: "list",
+      of: { type: "string" },
+    },
+    stack: {
+      type: "list",
+      of: { type: "string" },
+    },
+    tools: {
+      type: "list",
+      of: { type: "string" },
+    },
     published: {
       type: "boolean",
     },

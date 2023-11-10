@@ -6,6 +6,7 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: ["class"],
   theme: {
     extend: {
       typography: {
@@ -102,7 +103,11 @@ const config: Config = {
       },
     },
   },
-
+  extend: {
+    height: {
+      screen: "100dvh",
+    },
+  },
   plugins: [],
 };
 export default config;
