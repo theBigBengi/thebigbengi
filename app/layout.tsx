@@ -1,10 +1,8 @@
 import "./globals.css";
-import { Inter, Agbalumo, Anton } from "next/font/google";
+import { Inter } from "next/font/google";
 import LocalFont from "next/font/local";
 import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
-import { ThemeProvider } from "./theme-provider";
-import { ThemeToggle } from "./components/theme-toggle";
 
 export const metadata: Metadata = {
   title: {
@@ -38,10 +36,10 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  // twitter: {
-  //   title: "Chronark",
-  //   card: "summary_large_image",
-  // },
+  twitter: {
+    title: "gigi_dor",
+    card: "summary_large_image",
+  },
   icons: {
     shortcut: "/favicon.png",
   },
@@ -67,14 +65,11 @@ export default function RootLayout({
         <Analytics />
       </head>
       <body
-        className={`bg-zinic-50 dark:bg-black ${
+        className={`bg-zinic-50 bg-black ${
           process.env.NODE_ENV === "development" ? "debug-screens" : undefined
         }`}
       >
-        <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          {children}
-          <ThemeToggle />
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );
