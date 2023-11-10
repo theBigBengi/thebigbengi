@@ -20,19 +20,25 @@ export default async function ProjectsPage() {
   //     return acc;
   //   }, {} as Record<string, number>);
 
-  const featured = allProjects.find((project) => project.slug === "unkey")!;
-  const top2 = allProjects.find((project) => project.slug === "planetfall")!;
-  const top3 = allProjects.find((project) => project.slug === "highstorm")!;
+  const featured = allProjects.find(
+    (project: any) => project.slug === "unkey"
+  )!;
+  const top2 = allProjects.find(
+    (project: any) => project.slug === "planetfall"
+  )!;
+  const top3 = allProjects.find(
+    (project: any) => project.slug === "highstorm"
+  )!;
   const sorted = allProjects
-    .filter((p) => p.published)
+    .filter((p: any) => p.published)
     .filter(
-      (project) =>
+      (project: any) =>
         project.slug !== featured.slug &&
         project.slug !== top2.slug &&
         project.slug !== top3.slug
     )
     .sort(
-      (a, b) =>
+      (a: any, b: any) =>
         new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
         new Date(a.date ?? Number.POSITIVE_INFINITY).getTime()
     );
@@ -106,8 +112,8 @@ export default async function ProjectsPage() {
         <div className='grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3'>
           <div className='grid grid-cols-1 gap-4'>
             {sorted
-              .filter((_, i) => i % 3 === 0)
-              .map((project) => (
+              .filter((_: any, i: number) => i % 3 === 0)
+              .map((project: any) => (
                 <Card key={project.slug}>
                   <Article project={project} views={0} />
                 </Card>
@@ -115,8 +121,8 @@ export default async function ProjectsPage() {
           </div>
           <div className='grid grid-cols-1 gap-4'>
             {sorted
-              .filter((_, i) => i % 3 === 1)
-              .map((project) => (
+              .filter((_: any, i: number) => i % 3 === 1)
+              .map((project: any) => (
                 <Card key={project.slug}>
                   <Article project={project} views={0} />
                 </Card>
@@ -124,8 +130,8 @@ export default async function ProjectsPage() {
           </div>
           <div className='grid grid-cols-1 gap-4'>
             {sorted
-              .filter((_, i) => i % 3 === 2)
-              .map((project) => (
+              .filter((_: any, i: number) => i % 3 === 2)
+              .map((project: any) => (
                 <Card key={project.slug}>
                   <Article project={project} views={0} />
                 </Card>
