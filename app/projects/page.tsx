@@ -8,7 +8,7 @@ import { Redis } from "@upstash/redis";
 import { Eye } from "lucide-react";
 
 const redis = Redis.fromEnv();
-console.log(allProjects);
+
 export const revalidate = 60;
 export default async function ProjectsPage() {
   //   const views = (

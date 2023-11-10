@@ -7,19 +7,19 @@ import { Card } from "../components/card";
 const socials = [
   {
     icon: <Linkedin size={20} />,
-    href: "https://twitter.com/thebigbengi",
+    href: "https://www.linkedin.com/in/dorbengi",
     label: "Linkedin",
-    handle: "@thebigbengi",
+    handle: "@dorbengi",
   },
   {
     icon: <Mail size={20} />,
-    href: "mailto:thebigbengi@gmail.com",
+    href: "mailto:dev@thebigbengi.com",
     label: "Email",
-    handle: "thebigbengi@gmail.com",
+    handle: "dev@thebigbengi.com",
   },
   {
     icon: <Github size={20} />,
-    href: "https://github.com/chronark",
+    href: "https://github.com/theBigBengi",
     label: "Github",
     handle: "theBigBengi",
   },
