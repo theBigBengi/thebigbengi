@@ -65,7 +65,7 @@ export default function RootLayout({
         <Analytics />
       </head>
       <body
-        className={`bg-zinic-50 bg-black ${
+        className={`bg-zinc-50  ${
           process.env.NODE_ENV === "development" ? "debug-screens" : undefined
         }`}
       >

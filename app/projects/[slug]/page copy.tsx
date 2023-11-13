@@ -5,8 +5,6 @@ import { Header } from "./header";
 import "./mdx.css";
 import { ReportView } from "./view";
 import { Redis } from "@upstash/redis";
-import { Nav } from "./nav";
-import { Navigation } from "@/app/components/navigation";
 
 export const revalidate = 60;
 
@@ -38,23 +36,13 @@ export default async function PostPage({ params }: Props) {
     (await redis.get<number>(["pageviews", "projects", slug].join(":"))) ?? 0;
 
   return (
-    <div className=' bg-zinc-50 '>
-      <Navigation>
-        <Nav project={project} views={views} />
-      </Navigation>
+    <div className='bg-zinc-50 min-h-screen'>
+      <Header project={project} views={views} />
+      <ReportView slug={project.slug} />
 
-      <div className='px-6 md:px-0 md:grid md:grid-cols-8 flex flex-col max-w-7xl mx-auto'>
-        <Header project={project} views={views} />
-        <ReportView slug={project.slug} />
-
-        <article className='md:col-span-5 md:pt-6 md:pl-12 md:pr-6 md:pb-12 prose prose-zinc prose-quoteless'>
-          <div className='pb-12'>
-            <Mdx code={project.body.code} />
-          </div>
-        </article>
-      </div>
-
-      <div className='bg-zinc-100 w-screen h-screen'></div>
+      <article className='max-w-2xl px-4 py-12 mx-auto prose prose-zinc prose-quoteless'>
+        <Mdx code={project.body.code} />
+      </article>
     </div>
   );
 }
