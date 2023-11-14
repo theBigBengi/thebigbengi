@@ -44,10 +44,23 @@ export default async function PostPage({ params }: Props) {
       </Navigation>
 
       <div className='px-6 md:px-0 md:grid md:grid-cols-8 flex flex-col max-w-7xl mx-auto'>
+        {/* {project.imgSrc && (
+          <div className='pt-12 w-full h-[400px]'>
+            <img
+              className='block md:hidden h-full w-full'
+              src={project.imgSrc}
+              alt=''
+            />
+          </div>
+        )} */}
         <Header project={project} views={views} />
         <ReportView slug={project.slug} />
 
-        <article className='md:col-span-5 md:pt-6 md:pl-12 md:pr-6 md:pb-12 prose prose-zinc prose-quoteless'>
+        <article className='pt-8 md:col-span-5 md:pt-6 md:pl-12 md:pr-6 md:pb-12 prose prose-zinc prose-quoteless'>
+          {/* {project.imgSrc && (
+            <img className='hidden md:block' src={project.imgSrc} alt='' />
+          )} */}
+
           <div className='pb-12'>
             <Mdx code={project.body.code} />
           </div>

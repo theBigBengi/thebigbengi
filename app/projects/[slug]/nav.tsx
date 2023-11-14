@@ -1,6 +1,6 @@
 "use client";
 import { Navigation } from "@/app/components/navigation";
-import { ArrowLeft, Eye, Github, Twitter } from "lucide-react";
+import { ArrowLeft, Eye, Github, MoveLeft, Twitter } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -45,7 +45,7 @@ export const Nav: React.FC<Props> = ({ project, views, scroll }) => {
           <Eye className='w-5 h-5' />{" "}
           {Intl.NumberFormat("en-US", { notation: "compact" }).format(views)}
         </span>
-        <Link target='_blank' href='https://twitter.com/chronark_'>
+        {/* <Link target='_blank' href='https://twitter.com/chronark_'>
           <Twitter
             className={`w-6 h-6 duration-200 hover:font-medium ${
               scroll === 0
@@ -62,7 +62,7 @@ export const Nav: React.FC<Props> = ({ project, views, scroll }) => {
                 : "text-zinc-600 hover:text-zinc-900"
             } `}
           />
-        </Link>
+        </Link> */}
       </div>
 
       <Link
@@ -73,7 +73,7 @@ export const Nav: React.FC<Props> = ({ project, views, scroll }) => {
             : "text-zinc-600 hover:text-zinc-900"
         } `}
       >
-        <ArrowLeft className='w-6 h-6 ' />
+        <MoveLeft className='w-6 h-6 ' />
       </Link>
     </div>
   );

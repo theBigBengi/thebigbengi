@@ -52,6 +52,9 @@ export const Project = defineDocumentType(() => ({
     url: {
       type: "string",
     },
+    imgSrc: {
+      type: "string",
+    },
     repository: {
       type: "string",
     },
