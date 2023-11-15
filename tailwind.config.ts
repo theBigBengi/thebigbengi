@@ -10,6 +10,9 @@ const config: Config = {
   theme: {
     extend: {
       typography: {
+        transitionDuration: {
+          DEFAULT: "100ms", // Set your desired default duration here
+        },
         DEFAULT: {
           css: {
             "code::before": {

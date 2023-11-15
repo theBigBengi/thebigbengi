@@ -52,10 +52,10 @@ export default async function ProjectsPage() {
 
       <div className='px-6  mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 pt-10'>
         <div className='max-w-2xl mx-auto lg:mx-0'>
-          <h2 className='text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl'>
+          <h2 className='text-3xl font-bold tracking-tight text-zinc-900 transition-all  dark:text-zinc-50 sm:text-4xl'>
             Projects
           </h2>
-          <p className='mt-4 text-zinc-400'>
+          <p className='mt-4 text-zinc-500 transition-all dark:text-zinc-400'>
             Some of the projects are from work and some are on my own time.
           </p>
         </div>

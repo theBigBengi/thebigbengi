@@ -48,7 +48,7 @@ export const Header: React.FC<Props> = ({ project, views }) => {
             {project.tags.map((tag) => (
               <div
                 key={tag}
-                className='px-3   py-1 rounded-full text-[11px] md:text-[11px]  text-white bg-blue-500 dark:bg-blue-600/620'
+                className='px-3   py-1 rounded-full text-[11px] md:text-[11px]  text-white bg-blue-500 dark:bg-blue-600/70'
               >
                 {tag}
               </div>
