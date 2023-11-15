@@ -36,10 +36,8 @@ export const Nav: React.FC<Props> = ({ project, views, scroll }) => {
       <div className='flex justify-between gap-8'>
         <span
           title='View counter for this page'
-          className={`duration-200 hover:font-medium flex items-center gap-1 ${
-            scroll === 0
-              ? " text-zinc-400 hover:text-zinc-100"
-              : "text-zinc-600 hover:text-zinc-900"
+          className={` flex items-center gap-1 text-zinc-400 ${
+            scroll === 0 ? " text-zinc-400" : "text-zinc-800 dark:text-zinc-100"
           } `}
         >
           <Eye className='w-5 h-5' />{" "}
@@ -67,10 +65,8 @@ export const Nav: React.FC<Props> = ({ project, views, scroll }) => {
 
       <Link
         href='/projects'
-        className={`duration-200 hover:font-medium ${
-          scroll === 0
-            ? " text-zinc-400 hover:text-zinc-100"
-            : "text-zinc-600 hover:text-zinc-900"
+        className={`duration-300 hover:font-medium  hover:text-zinc-900 dark:hover:text-zinc-50  ${
+          scroll === 0 ? " text-zinc-400" : "text-zinc-800 dark:text-zinc-100"
         } `}
       >
         <MoveLeft className='w-6 h-6 ' />

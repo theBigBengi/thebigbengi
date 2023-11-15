@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import LocalFont from "next/font/local";
 import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
+import { ThemeProvider } from "./theme-provider";
+import { ThemeToggle } from "./components/theme-toggle";
 
 export const metadata: Metadata = {
   title: {
@@ -65,11 +67,14 @@ export default function RootLayout({
         <Analytics />
       </head>
       <body
-        className={`bg-zinc-50  ${
+        className={`bg-zinc-50 dark:bg-zinc-900 ${
           process.env.NODE_ENV === "development" ? "debug-screens" : undefined
         }`}
       >
-        {children}
+        <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+          <ThemeToggle />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

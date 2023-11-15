@@ -6,7 +6,7 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: ["class"],
+  darkMode: "class",
   theme: {
     extend: {
       typography: {
@@ -96,7 +96,7 @@ const config: Config = {
           },
 
           "100%": {
-            "line-height": "100%",
+            "line-height": "120%",
             opacity: "100%",
           },
         },

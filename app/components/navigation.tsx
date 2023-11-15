@@ -31,10 +31,10 @@ export const Navigation: React.FC<Props> = ({ children }) => {
 
   return (
     <header
-      className={`flex justify-center sticky top-0 z-50 duration-200 border-b ${
+      className={`flex justify-center backdrop-blur   sticky top-0 z-50 duration-300 border-b ${
         scrollPosition === 0
           ? "bg-transparent border-transparent"
-          : " bg-zinc-50 border-zinc-200 "
+          : " bg-zinc-50/50 border-zinc-200 dark:bg-zinc-900/50 dark:border-zinc-700"
       }`}
     >
       {cloneElement(children, { scroll: scrollPosition })}

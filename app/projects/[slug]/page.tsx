@@ -34,13 +34,11 @@ export default async function PostPage({ params }: Props) {
     notFound();
   }
 
-  console.log(project);
-
   const views =
     (await redis.get<number>(["pageviews", "projects", slug].join(":"))) ?? 0;
 
   return (
-    <div className=' bg-zinc-50 '>
+    <div className=' bg-zinc-50 dark:bg-zinc-900'>
       <Navigation>
         <Nav project={project} views={views} />
       </Navigation>
