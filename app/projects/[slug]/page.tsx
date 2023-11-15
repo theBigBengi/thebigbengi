@@ -34,6 +34,8 @@ export default async function PostPage({ params }: Props) {
     notFound();
   }
 
+  console.log(project);
+
   const views =
     (await redis.get<number>(["pageviews", "projects", slug].join(":"))) ?? 0;
 
@@ -55,13 +57,14 @@ export default async function PostPage({ params }: Props) {
         )} */}
         <Header project={project} views={views} />
         <ReportView slug={project.slug} />
-
         <article className='pt-8 md:col-span-5 md:pt-6 md:pl-12 md:pr-6 md:pb-12 prose prose-zinc prose-quoteless'>
-          {/* {project.imgSrc && (
-            <img className='hidden md:block' src={project.imgSrc} alt='' />
-          )} */}
+          {project.imgSrc && (
+            <div className='hidden md:block pt-6 w-full h-[400px]'>
+              <img className=' h-full w-full' src={project.imgSrc} alt='' />
+            </div>
+          )}
 
-          <div className='pb-12'>
+          <div className='pb-12 md:pt-12'>
             <Mdx code={project.body.code} />
           </div>
         </article>

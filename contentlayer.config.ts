@@ -28,8 +28,7 @@ export const Project = defineDocumentType(() => ({
       of: { type: "string" },
     },
     stack: {
-      type: "list",
-      of: { type: "string" },
+      type: "json",
     },
     tools: {
       type: "list",

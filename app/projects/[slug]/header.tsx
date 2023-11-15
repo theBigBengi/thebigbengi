@@ -10,10 +10,33 @@ type Props = {
     description: string;
     repository?: string;
     imgSrc?: string;
+    stack?: { [key: string]: string | number };
   };
 
   views: number;
 };
+
+type HeroProps = {
+  stack?: { [key: string]: string | number };
+};
+
+const Hero: React.FC<HeroProps> = ({ stack }) => {
+  if (!stack) return;
+
+  return (
+    <div className='text-sm text-zinc-500'>
+      {Object.keys(stack).map((key) => (
+        <div className='flex justify-between pb-2.5'>
+          <span className='font-semibold'>{key}</span>
+          <div>
+            <a className=''>{stack[key]}</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 export const Header: React.FC<Props> = ({ project, views }) => {
   const links: { label: string; href: string }[] = [];
   if (project.repository) {
@@ -30,7 +53,7 @@ export const Header: React.FC<Props> = ({ project, views }) => {
   }
 
   return (
-    <div className='md:col-span-3  bg-zinc-50 md:border-r border-zinc-200 min-h-screen'>
+    <div className='md:col-span-3  bg-zinc-50 md:border-r border-zinc-200 md:min-h-screen'>
       {project.imgSrc && (
         <div className='block md:hidden pt-12 w-full h-[400px]'>
           <img className=' h-full w-full' src={project.imgSrc} alt='' />
@@ -58,7 +81,7 @@ export const Header: React.FC<Props> = ({ project, views }) => {
 
         <div className='pt-5  flex flex-col items-stretch gap-4 '>
           <div className='max-w-2xl lg:mx-0'>
-            <h1 className='text-3xl md:text-6xl  font-bold tracking-tight text-zinc-900  font-display'>
+            <h1 className='text-5xl md:text-6xl  font-bold tracking-tight text-zinc-900  font-display'>
               {project.title}
             </h1>
           </div>
@@ -87,50 +110,18 @@ export const Header: React.FC<Props> = ({ project, views }) => {
             ))}
           </div>
 
-          <div className='text-sm text-zinc-500'>
-            <div className='flex justify-between pb-2.5'>
-              <span className='font-semibold'>Framework</span>
-              <div>
-                <a className=''>Nextjs</a>
-              </div>
+          {project.stack && (
+            <div className='text-sm text-zinc-500'>
+              {Object.keys(project.stack).map((key) => (
+                <div className='first:border-t-0 border-t border-zinc-200 flex justify-between items-center py-2.5'>
+                  <span className='font-semibold'>{key}</span>
+                  <div>
+                    <a className=''>{project.stack![key]}</a>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className='flex justify-between border-t border-zinc-200 py-2.5 '>
-              <span className='font-semibold'>Database</span>
-              <div>
-                <a className=''>Upstash</a>
-              </div>
-            </div>
-            <div className='flex justify-between border-t border-zinc-200 py-2.5'>
-              <span className='font-semibold'>Use Case</span>
-              <div>
-                <a className=''>Dashboard</a>
-              </div>
-            </div>
-            <div className='flex justify-between border-t border-zinc-200 py-2.5'>
-              <span className='font-semibold'>CSS</span>
-              <div>
-                <a className=''>Tailwind</a>
-              </div>
-            </div>
-            <div className='flex justify-between border-t border-zinc-200 py-2.5 '>
-              <span className='font-semibold'>Database</span>
-              <div>
-                <a className=''>Upstash</a>
-              </div>
-            </div>
-            <div className='flex justify-between border-t border-zinc-200 py-2.5'>
-              <span className='font-semibold'>Use Case</span>
-              <div>
-                <a className=''>Dashboard</a>
-              </div>
-            </div>
-            <div className='flex justify-between border-t border-zinc-200 py-2.5'>
-              <span className='font-semibold'>CSS</span>
-              <div>
-                <a className=''>Tailwind</a>
-              </div>
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
