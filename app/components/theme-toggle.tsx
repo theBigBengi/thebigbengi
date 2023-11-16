@@ -1,11 +1,34 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, ReactElement } from "react";
 import { useTheme } from "next-themes";
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon, Monitor } from "lucide-react";
+
+interface ToggleIconProps {
+  children: ReactElement;
+  themeValue: string;
+}
+
+const ToggleIcon = ({ children, themeValue }: ToggleIconProps) => {
+  const { theme, setTheme } = useTheme();
+
+  return (
+    <span
+      className={`${
+        theme === themeValue
+          ? "bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-200"
+          : ""
+      } p-2 rounded-full dark:text-zinc-400 `}
+      onClick={() => {
+        setTheme(themeValue);
+      }}
+    >
+      {children}
+    </span>
+  );
+};
 
 export const ThemeToggle = () => {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
@@ -16,14 +39,18 @@ export const ThemeToggle = () => {
   }
 
   return (
-    <button
-      className={`flex gap-3 w-fit  right-4 bottom-2  p-2 rounded-md hover:scale-110 active:scale-100 duration-200 bg-[#212933]`}
-      onClick={() => {
-        setTheme(theme === "dark" ? "light" : "dark");
-        console.log(theme);
-      }}
+    <div
+      className={`flex gap-3 w-fit  right-4 bottom-2  p-2 rounded-md duration-1000`}
     >
-      <Moon /> <Sun />
-    </button>
+      <ToggleIcon themeValue='light'>
+        <Sun className='w-5 h-5' />
+      </ToggleIcon>
+      <ToggleIcon themeValue='dark'>
+        <Moon className='w-5 h-5' />
+      </ToggleIcon>
+      <ToggleIcon themeValue='system'>
+        <Monitor className='w-5 h-5' />
+      </ToggleIcon>
+    </div>
   );
 };

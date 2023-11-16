@@ -31,14 +31,15 @@ export default async function PostPage({ params }: Props) {
   const project = allProjects.find((project) => project.slug === slug);
 
   let projects = allProjects.filter((obj) => {
+    // console.log(obj?.tags, project?.tags);
     if (!obj?.tags || !project?.tags) return false;
 
-    return project?.tags?.every(
+    return project?.tags?.some(
       (tag) => obj?.tags?.includes(tag) && project.slug !== obj.slug
     );
   });
 
-  console.log(projects);
+  console.log(projects.map((p) => p.title));
 
   if (!project) {
     notFound();

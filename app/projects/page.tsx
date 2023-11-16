@@ -5,9 +5,11 @@ import { allProjects } from "contentlayer/generated";
 import { Card } from "../components/card";
 import { Article } from "./article";
 import { Redis } from "@upstash/redis";
-import { ArrowLeft, Eye } from "lucide-react";
+import { ArrowLeft, Eye, ArrowBigRight, Tags } from "lucide-react";
 import { Navigation } from "../components/navigation";
 import { Nav } from "./navigation";
+import { compact, uniq } from "lodash";
+import TagsFilter from "./tags";
 
 const redis = Redis.fromEnv();
 
@@ -44,6 +46,8 @@ export default async function ProjectsPage() {
         new Date(a.date ?? Number.POSITIVE_INFINITY).getTime()
     );
 
+  const tags = allProjects.flatMap((project) => project.tags);
+
   return (
     <div className='relative pb-16'>
       <Navigation>
@@ -59,7 +63,8 @@ export default async function ProjectsPage() {
             Some of the projects are from work and some are on my own time.
           </p>
         </div>
-        <div className='w-full h-px bg-zinc-300' />
+
+        <TagsFilter />
 
         <div className='grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 '>
           <Card>

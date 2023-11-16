@@ -8,6 +8,14 @@ type Props = {
 };
 
 export const Article: React.FC<Props> = ({ project, views }) => {
+  let stack = project?.stack?.Framework;
+
+  if (project?.stack?.Framework) {
+    stack = project?.stack;
+    delete stack.repo;
+    delete stack.Use_case;
+  }
+
   return (
     <Link href={`/projects/${project.slug}`}>
       <article className='p-4 md:p-8'>
@@ -34,6 +42,9 @@ export const Article: React.FC<Props> = ({ project, views }) => {
         <p className='z-20 mt-4 text-sm  duration-1000 text-zinc-500 group-hover:text-zinc-700 dark:text-zinc-400 dark:group-hover:text-zinc-200'>
           {project.description}
         </p>
+        <div className='mt-4 text-[11px] text-zinc-500  '>
+          {stack && Object.values(stack)?.join(", ")}
+        </div>
       </article>
     </Link>
   );
