@@ -5,10 +5,12 @@ url: https://nextjs-dashboard-theta-three-87.vercel.app/
 published: true
 date: 2023-10-18
 tags:
-  - content SDK
-  - Animations
   - Typescript
   - Responsive Design
+  - Server Actions
+  - Server Components
+  - Backend
+  - SQL
 stack:
   Framework: Next.js
   CSS: Tailwind
@@ -20,30 +22,36 @@ stack:
 repository: theBigBengi/nextjs-dashboard
 ---
 
-Like so many others, I just wanted a place to collect some projects I worked on. Maybe I'll add a blog, maybe I won't. I'm not sure yet.
+## Overview
 
-If you like the design, check out the Repository on GitHub.
+a simplified version of the financial dashboard that has:
 
-### features
+- A public home page.
+- A login page.
+- Dashboard pages that are protected by authentication.
+- The ability for users to add, edit, and delete invoices.
 
--
+The dashboard will also have an accompanying database
 
-Framework: Next.js
+## Features in this course
 
----
+Here's an overview of features in this course:
 
-Database: Upstash/redis
+- Styling: The different ways to style your application in Next.js.
+- Optimizations: How to optimize images, links, and fonts.
+- Routing: How to create nested layouts and pages using file- system routing.
+- Data Fetching: How to set up a database on Vercel, and best practices for fetching and streaming.
+- Search and Pagination: How to implement search and pagination using URL Search Params.
+- Mutating Data: How to mutate data using React Server Actions, and revalidate the Next.js cache.
+- Error Handling: How to handle general and 404 not found errors.
+- Form Validation and Accessibility: How to do server- side form validation and tips for improving accessibility.
+- Authentication: How to add authentication to your application using NextAuth.js and Middleware.
+- Metadata: How to add metadata and prepare your application for social sharing.
 
----
+## Authentication
 
-Deployment: Vercel
+[Next Auth][https://next-auth.js.org] is a complete open-source authentication solution for Next.js applications.
 
----
+## Database
 
-Styling: Tailwind CSS
-
-##### Tools
-
-- mdx
-- contentlayer
-- framer-motion
+[Vercel/postgres][https://vercel.com/docs/storage/vercel-postgres/quickstart] is a serverless SQL database

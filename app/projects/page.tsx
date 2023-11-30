@@ -5,10 +5,9 @@ import { allProjects } from "contentlayer/generated";
 import { Card } from "../components/card";
 import { Article } from "./article";
 import { Redis } from "@upstash/redis";
-import { ArrowLeft, Eye, ArrowBigRight, Tags } from "lucide-react";
+import { ArrowLeft, Eye } from "lucide-react";
 import { Navigation } from "../components/navigation";
 import { Nav } from "./navigation";
-import { compact, uniq } from "lodash";
 import TagsFilter from "./tags";
 
 const redis = Redis.fromEnv();
@@ -24,14 +23,10 @@ export default async function ProjectsPage() {
     return acc;
   }, {} as Record<string, number>);
 
-  const featured = allProjects.find(
-    (project) => project.slug === "the-wild-oasis"
-  )!;
-  console.log(allProjects.map((p) => p.slug));
-  const top2 = allProjects.find((project) => project.slug === "vacations")!;
-  const top3 = allProjects.find(
-    (project) => project.slug === "vacations-server"
-  )!;
+  const featured = allProjects.find((project) => project.slug === "quill")!;
+
+  const top2 = allProjects.find((project) => project.slug === "kanban")!;
+  const top3 = allProjects.find((project) => project.slug === "vacations")!;
   const sorted = allProjects
     .filter((p) => p.published)
     .filter(
@@ -71,7 +66,7 @@ export default async function ProjectsPage() {
             <Link href={`/projects/${featured.slug}`}>
               <article className='relative w-full h-full p-4 md:p-8'>
                 <div className='flex items-center justify-between gap-2'>
-                  <div className='text-xs text-zinc-800 dark:text-zinc-100 '>
+                  <div className='text-xs duration-1000 text-zinc-600 dark:text-zinc-200  group-hover:text-black dark:group-hover:text-white group-hover:border-zinc-700 dark:group-hover:border-zinc-200 drop-shadow-orange'>
                     {featured.date ? (
                       <time dateTime={new Date(featured.date).toISOString()}>
                         {Intl.DateTimeFormat(undefined, {
@@ -92,11 +87,12 @@ export default async function ProjectsPage() {
 
                 <h2
                   id='featured-post'
-                  className='mt-4 text-3xl font-bold duration-1000 text-zinc-900 dark:text-zinc-50 group-hover:text-black sm:text-4xl font-display'
+                  // text-xs duration-1000 text-zinc-600 dark:text-zinc-200  group-hover:text-black dark:group-hover:text-white group-hover:border-zinc-700 dark:group-hover:border-zinc-200 drop-shadow-orange
+                  className='mt-4 text-3xl font-bold duration-1000 text-zinc-900 dark:text-zinc-50 group-hover:text-black dark:group-hover:text-white sm:text-4xl font-display'
                 >
                   {featured.title}
                 </h2>
-                <p className='mt-4 leading-8 duration-150 text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-600'>
+                <p className='mt-4 leading-8 duration-150 text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-600'>
                   {featured.description}
                 </p>
                 <div className='absolute bottom-4 md:bottom-8'>
